@@ -9,92 +9,130 @@
   <style>
     :root{
       --bg:#0b1220;
-      --panel:#0f1a2e;
+      --panel:rgba(255,255,255,.03);
       --text:#e6edf7;
       --muted:#a9b6cc;
       --accent:#3aa0ff;
       --line:rgba(255,255,255,.10);
-      --shadow:0 18px 50px rgba(0,0,0,.45);
-      --radius:18px;
+      --shadow:0 20px 60px rgba(0,0,0,.55);
+      --shadowSoft:0 12px 30px rgba(0,0,0,.28);
+      --radius:22px;
+      --radiusHero:26px;
+      --max:1100px;
     }
-    *{box-sizing:border-box}
-    html,body{height:100%}
+
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
     body{
       margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
       color:var(--text);
-      background: radial-gradient(900px 500px at 15% 10%, rgba(58,160,255,.16), transparent 60%),
-                  radial-gradient(800px 500px at 80% 10%, rgba(121,73,255,.14), transparent 55%),
-                  var(--bg);
-      line-height:1.55;
+      background:
+        radial-gradient(1000px 520px at 10% 0%, rgba(58,160,255,.18), transparent 60%),
+        radial-gradient(900px 520px at 90% 0%, rgba(121,73,255,.14), transparent 55%),
+        var(--bg);
+      line-height:1.6;
     }
-    a{color:inherit}
-    .wrap{max-width:1100px; margin:0 auto; padding:28px 18px 64px;}
-    .nav{
-      display:flex; align-items:center; justify-content:space-between;
-      gap:16px; padding:10px 4px 22px;
+
+    a{ color:inherit; }
+    .wrap{ max-width:var(--max); margin:0 auto; padding:22px 18px 70px; }
+
+    /* top nav */
+    header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+      padding:8px 2px 18px;
     }
-    .brand{display:flex; align-items:center; gap:10px; text-decoration:none;}
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      text-decoration:none;
+    }
     .dot{
-      width:10px;height:10px;border-radius:50%;
-      background:var(--accent); box-shadow:0 0 0 6px rgba(58,160,255,.18);
+      width:10px;
+      height:10px;
+      border-radius:50%;
+      background:var(--accent);
+      box-shadow:0 0 0 6px rgba(58,160,255,.18);
     }
-    .brand span{font-weight:650; letter-spacing:.2px}
-    .navlinks{display:flex; gap:14px; flex-wrap:wrap}
-    .navlinks a{
-      text-decoration:none; color:var(--muted);
-      padding:8px 10px; border-radius:999px;
+    .brand span{ font-weight:650; letter-spacing:.2px; }
+
+    nav{ display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end; }
+    nav a{
+      text-decoration:none;
+      color:var(--muted);
+      padding:8px 10px;
+      border-radius:999px;
       border:1px solid transparent;
     }
-    .navlinks a:hover{
+    nav a:hover{
       color:var(--text);
       border-color:var(--line);
       background:rgba(255,255,255,.04);
     }
 
-    /* Hero */
+    /* hero: match screenshot vibe (big rounded image card) */
     .hero{
       position:relative;
-      border-radius:24px;
+      border-radius:var(--radiusHero);
       overflow:hidden;
-      box-shadow:var(--shadow);
       border:1px solid var(--line);
+      box-shadow:var(--shadow);
+      background:#050a14;
+    }
+
+    /* put your screenshot image here */
+    .heroMedia{
+      position:relative;
+      height:340px;
       background:
-        linear-gradient(180deg, rgba(0,0,0,.15), rgba(0,0,0,.62)),
-        url("https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=2400&q=80");
+        linear-gradient(180deg, rgba(0,0,0,.05) 0%, rgba(0,0,0,.65) 100%),
+        url("assets/hero.jpg");
       background-size:cover;
       background-position:center;
-      min-height:440px;
-      display:flex;
-      align-items:flex-end;
     }
-    .hero::after{
+
+    /* subtle “glass” overlay like the screenshot */
+    .heroMedia::after{
       content:"";
-      position:absolute; inset:0;
+      position:absolute;
+      inset:0;
       background:
-        radial-gradient(900px 420px at 20% 20%, rgba(58,160,255,.28), transparent 55%),
-        radial-gradient(800px 380px at 80% 20%, rgba(121,73,255,.24), transparent 55%),
-        linear-gradient(180deg, rgba(0,0,0,.08), rgba(0,0,0,.72));
+        radial-gradient(900px 380px at 15% 30%, rgba(58,160,255,.20), transparent 60%),
+        radial-gradient(700px 340px at 85% 25%, rgba(121,73,255,.18), transparent 60%),
+        linear-gradient(180deg, rgba(0,0,0,.05), rgba(0,0,0,.70));
       pointer-events:none;
     }
-    .heroContent{
-      position:relative;
-      width:100%;
-      padding:34px 28px 28px;
-      display:grid;
-      grid-template-columns: 1.4fr .9fr;
-      gap:18px;
+
+    /* centered hero text (like “Expert Business Consulting Services”) */
+    .heroOverlay{
+      position:absolute;
+      inset:0;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      padding:26px;
+      z-index:1;
     }
-    .kicker{
+
+    .heroOverlay .kicker{
       display:inline-flex;
-      gap:10px; align-items:center;
-      font-size:13px; color:rgba(230,237,247,.85);
-      background:rgba(0,0,0,.28);
-      border:1px solid rgba(255,255,255,.12);
-      padding:8px 12px; border-radius:999px;
-      width:max-content;
+      gap:10px;
+      align-items:center;
+      justify-content:center;
+      font-size:13px;
+      color:rgba(230,237,247,.86);
+      background:rgba(0,0,0,.30);
+      border:1px solid rgba(255,255,255,.14);
+      padding:8px 12px;
+      border-radius:999px;
+      backdrop-filter: blur(10px);
     }
-    .kicker .pill{
+    .heroOverlay .pill{
       font-size:12px;
       padding:3px 8px;
       border-radius:999px;
@@ -102,121 +140,137 @@
       border:1px solid rgba(58,160,255,.35);
       color:rgba(230,237,247,.95);
     }
+
     h1{
       margin:14px 0 10px;
-      font-size:42px;
+      font-size:40px;
       letter-spacing:-.6px;
-      line-height:1.1;
+      line-height:1.12;
     }
-    .headline{
-      margin:0;
-      color:rgba(230,237,247,.88);
+    .subhead{
+      margin:0 auto;
       max-width:70ch;
+      color:rgba(230,237,247,.88);
       font-size:16px;
     }
+
+    /* section under hero image (like screenshot: content begins below) */
+    .heroBody{
+      display:grid;
+      grid-template-columns: 1.35fr .85fr;
+      gap:16px;
+      padding:18px;
+      background:rgba(255,255,255,.02);
+    }
+
     .ctaRow{
-      display:flex; gap:10px; flex-wrap:wrap;
-      margin-top:18px;
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:14px;
     }
     .btn{
       text-decoration:none;
-      display:inline-flex; align-items:center; justify-content:center;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
       gap:10px;
       padding:11px 14px;
-      border-radius:12px;
+      border-radius:14px;
       border:1px solid rgba(255,255,255,.14);
-      background:rgba(0,0,0,.25);
+      background:rgba(255,255,255,.03);
       color:var(--text);
-      font-weight:600;
+      font-weight:650;
+      box-shadow:var(--shadowSoft);
     }
-    .btn:hover{background:rgba(255,255,255,.06)}
+    .btn:hover{ background:rgba(255,255,255,.06); }
     .btn.primary{
       border-color:rgba(58,160,255,.45);
-      background:rgba(58,160,255,.16);
+      background:rgba(58,160,255,.14);
     }
-    .btn.primary:hover{background:rgba(58,160,255,.22)}
-    .btn small{font-weight:500; color:rgba(230,237,247,.75)}
+    .btn.primary:hover{ background:rgba(58,160,255,.20); }
+    .btn small{ font-weight:500; color:rgba(230,237,247,.78); }
 
-    .heroCard{
-      align-self:stretch;
-      background:rgba(10,16,30,.55);
-      border:1px solid rgba(255,255,255,.12);
+    .infoCard{
       border-radius:18px;
-      padding:16px;
-      backdrop-filter: blur(8px);
-      display:flex; flex-direction:column; justify-content:space-between;
-      gap:14px;
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(0,0,0,.18);
+      padding:14px;
+      box-shadow:var(--shadowSoft);
     }
-    .statGrid{
-      display:grid; grid-template-columns:1fr 1fr;
-      gap:12px;
+    .infoGrid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:10px;
     }
     .stat{
-      background:rgba(255,255,255,.04);
-      border:1px solid rgba(255,255,255,.10);
       border-radius:14px;
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(255,255,255,.03);
       padding:12px;
     }
-    .stat .num{font-size:16px; font-weight:700}
-    .stat .lbl{font-size:12px; color:rgba(230,237,247,.70); margin-top:4px}
-    .mini{
-      font-size:12px; color:rgba(230,237,247,.72);
-      border-top:1px solid rgba(255,255,255,.10);
-      padding-top:12px;
-      display:flex; gap:10px; flex-wrap:wrap;
-    }
-    .mini a{color:rgba(230,237,247,.88); text-decoration:none}
-    .mini a:hover{text-decoration:underline}
+    .stat .num{ font-weight:700; font-size:14px; }
+    .stat .lbl{ margin-top:4px; color:rgba(230,237,247,.70); font-size:12px; }
 
-    /* Sections */
+    .linksRow{
+      margin-top:12px;
+      padding-top:12px;
+      border-top:1px solid rgba(255,255,255,.10);
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      color:rgba(230,237,247,.78);
+      font-size:12px;
+    }
+    .linksRow a{
+      text-decoration:none;
+      color:rgba(230,237,247,.88);
+    }
+    .linksRow a:hover{ text-decoration:underline; }
+
+    /* main content cards */
     .grid{
-      margin-top:22px;
+      margin-top:18px;
       display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:18px;
+      grid-template-columns:1fr 1fr;
+      gap:16px;
     }
     .card{
-      background:rgba(255,255,255,.03);
-      border:1px solid var(--line);
       border-radius:var(--radius);
+      border:1px solid var(--line);
+      background:var(--panel);
       padding:18px;
-      box-shadow:0 10px 30px rgba(0,0,0,.25);
+      box-shadow:var(--shadowSoft);
     }
     .card h2{
       margin:0 0 10px;
       font-size:18px;
       letter-spacing:-.2px;
     }
-    .muted{color:var(--muted)}
-    ul{margin:10px 0 0; padding-left:18px; color:rgba(230,237,247,.92)}
-    li{margin:7px 0}
-    .tagRow{display:flex; flex-wrap:wrap; gap:8px; margin-top:10px}
-    .tag{
-      font-size:12px;
-      padding:6px 10px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.12);
-      background:rgba(0,0,0,.18);
-      color:rgba(230,237,247,.86);
-    }
-    .full{grid-column:1 / -1}
+    .muted{ color:var(--muted); }
+    ul{ margin:10px 0 0; padding-left:18px; }
+    li{ margin:7px 0; color:rgba(230,237,247,.92); }
 
-    /* Timeline */
-    .timeline{display:grid; gap:12px; margin-top:10px}
+    .full{ grid-column:1 / -1; }
+    .timeline{ display:grid; gap:12px; margin-top:10px; }
     .item{
+      border-radius:16px;
       border:1px solid rgba(255,255,255,.10);
       background:rgba(0,0,0,.14);
-      border-radius:14px;
       padding:14px;
     }
-    .itemTop{display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap}
-    .role{font-weight:700}
-    .meta{color:rgba(230,237,247,.72); font-size:13px}
-    .desc{margin-top:8px; color:rgba(230,237,247,.88)}
+    .itemTop{
+      display:flex;
+      justify-content:space-between;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+    .role{ font-weight:700; }
+    .meta{ color:rgba(230,237,247,.72); font-size:13px; }
 
     footer{
-      margin-top:28px;
-      padding-top:18px;
+      margin-top:22px;
+      padding-top:16px;
       border-top:1px solid var(--line);
       color:rgba(230,237,247,.70);
       display:flex;
@@ -227,23 +281,23 @@
     }
 
     @media (max-width: 900px){
-      .heroContent{grid-template-columns:1fr}
-      .grid{grid-template-columns:1fr}
-      h1{font-size:34px}
-      .hero{min-height:500px}
+      .heroBody{ grid-template-columns:1fr; }
+      .grid{ grid-template-columns:1fr; }
+      h1{ font-size:32px; }
+      .heroMedia{ height:320px; }
     }
   </style>
 </head>
 
 <body>
   <div class="wrap">
-    <header class="nav">
+    <header>
       <a class="brand" href="#top">
         <span class="dot"></span>
         <span>Matthew Bailey</span>
       </a>
 
-      <nav class="navlinks">
+      <nav>
         <a href="#about">About</a>
         <a href="#skills">Skills</a>
         <a href="#experience">Experience</a>
@@ -254,54 +308,64 @@
 
     <main id="top">
       <section class="hero" aria-label="Hero">
-        <div class="heroContent">
-          <div>
-            <div class="kicker">
-              <span class="pill">Cloud Architect</span>
-              <span>Architecture Team Lead · Security · Reliability · Cost Efficiency</span>
-            </div>
+        <div class="heroMedia">
+          <div class="heroOverlay">
+            <div>
+              <div class="kicker">
+                <span class="pill">Cloud Architecture</span>
+                <span>security · automation · resilience</span>
+              </div>
 
-            <h1>Secure, scalable cloud architecture for government-grade requirements.</h1>
+              <h1>Cloud architecture and consulting services</h1>
 
-            <p class="headline">
-              Senior cloud architect and team lead with 20+ years of experience designing, implementing, and leading secure,
-              scalable environments across Azure (including Azure Government), AWS, and on-premises platforms.
-              I translate complex business and compliance requirements into practical architectures, while mentoring teams,
-              driving standards, and improving reliability, performance, and cost efficiency.
-            </p>
-
-            <div class="ctaRow">
-              <a class="btn primary" href="#contact">Contact <small>email / LinkedIn</small></a>
-              <a class="btn" href="#experience">View Experience</a>
-              <a class="btn" href="#skills">Core Skills</a>
+              <p class="subhead">
+                Architecture Team Lead / Senior Cloud Architect delivering secure, scalable environments across Azure (including Azure Government),
+                AWS, and on-prem platforms, with strong focus on compliance, DR, and operational readiness.
+              </p>
             </div>
           </div>
+        </div>
 
-          <aside class="heroCard" aria-label="Quick facts">
-            <div class="statGrid">
+        <div class="heroBody">
+          <div>
+            <div class="ctaRow">
+              <a class="btn primary" href="#contact">Contact <small>email / LinkedIn</small></a>
+              <a class="btn" href="#experience">View experience</a>
+              <a class="btn" href="#skills">Core skills</a>
+            </div>
+
+            <p class="muted" style="margin:14px 0 0;">
+              Senior cloud architect and team lead with 20+ years of experience designing, implementing, and leading secure,
+              scalable environments. I translate business and compliance requirements into practical architectures, drive standards,
+              and improve reliability, performance, and cost efficiency.
+            </p>
+          </div>
+
+          <aside class="infoCard" aria-label="Quick facts">
+            <div class="infoGrid">
               <div class="stat">
-                <div class="num">Azure (Commercial & Gov)</div>
-                <div class="lbl">Design, build-out, operations</div>
+                <div class="num">Azure (commercial + gov)</div>
+                <div class="lbl">architecture & operations</div>
               </div>
               <div class="stat">
                 <div class="num">AWS</div>
-                <div class="lbl">Secure environments & baselines</div>
+                <div class="lbl">security baselines</div>
               </div>
               <div class="stat">
-                <div class="num">Security & Compliance</div>
-                <div class="lbl">NIST 800-53 · FedRAMP readiness · FISMA</div>
+                <div class="num">security & compliance</div>
+                <div class="lbl">NIST 800-53 · audits</div>
               </div>
               <div class="stat">
-                <div class="num">Observability & Risk</div>
-                <div class="lbl">Datadog · Tenable/Nessus · SIEM</div>
+                <div class="num">DR / BCP</div>
+                <div class="lbl">RTO/RPO alignment</div>
               </div>
             </div>
 
-            <div class="mini" id="contactlinks">
+            <div class="linksRow">
               <span class="muted">Takoma Park, MD</span>
               <a href="mailto:mattrbailey@gmail.com">mattrbailey@gmail.com</a>
               <a href="tel:+12027166833">202.716.6833</a>
-              <a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>
+              <a href="https://www.linkedin.com/in/matt-bailey-428864174/" target="_blank" rel="noopener">LinkedIn</a>
             </div>
           </aside>
         </div>
@@ -311,56 +375,39 @@
         <div class="card" id="about">
           <h2>About</h2>
           <p class="muted">
-            Cloud architect / architecture team lead focused on state and local government solutions, delivering secure,
-            scalable environments and practical patterns that teams can reuse. Experienced across Azure (including Azure Government),
-            AWS, and on-premises platforms, with strong emphasis on compliance-driven architecture, operational excellence, and mentoring.
+            Cloud architect / architecture team lead focused on government-grade solutions, delivering secure,
+            scalable environments and reusable patterns teams can adopt quickly. Strong emphasis on compliance-driven
+            architecture, operational excellence, and mentoring.
           </p>
-
-          <div class="tagRow" aria-label="Focus tags">
-            <span class="tag">Reference Architecture</span>
-            <span class="tag">Dev/UAT/Prod Build-out</span>
-            <span class="tag">Network & Security Design</span>
-            <span class="tag">DR/BCP</span>
-            <span class="tag">Cost Optimization</span>
-            <span class="tag">Monitoring & Observability</span>
-          </div>
         </div>
 
         <div class="card" id="skills">
-          <h2>Core Skills</h2>
+          <h2>Core skills</h2>
           <ul>
-            <li>Cloud platforms: Microsoft Azure (Commercial & Government), AWS</li>
-            <li>Security & compliance: NIST 800-53, FedRAMP readiness, FISMA audits, WAF, vulnerability management</li>
-            <li>Tools & technologies: Azure Front Door & WAF, Datadog, Tenable Security Center, Nessus, Splunk SIEM, Citrix Cloud</li>
-            <li>Leadership: architecture team lead, cross-functional collaboration, stakeholder communication, vendor management</li>
-            <li>Governance & operations: monitoring/observability, DR/BCP, operational runbooks, cost optimization</li>
-            <li>Infrastructure: Windows Server, VMware, SAN storage (EMC, NetApp), backup/replication, O365/Exchange</li>
+            <li>Cloud platforms: Microsoft Azure (commercial and government), AWS</li>
+            <li>Security & compliance: NIST 800-53, FedRAMP readiness, FISMA audit support, WAF, vulnerability management</li>
+            <li>Tools: Azure Front Door & WAF, Datadog, Tenable Security Center, Nessus, Splunk SIEM, Citrix Cloud</li>
+            <li>Leadership: architecture team lead, stakeholder communication, standards and documentation</li>
+            <li>Operations: monitoring, DR/BCP, runbooks, cost optimization</li>
           </ul>
         </div>
 
         <div class="card full" id="experience">
-          <h2>Professional Experience</h2>
-
+          <h2>Professional experience</h2>
           <div class="timeline">
             <div class="item">
               <div class="itemTop">
                 <div class="role">Architecture Team Lead / Senior Cloud Architect — Voyatek (formerly GCOM Software)</div>
                 <div class="meta">Columbia, MD · Apr 2021 – Present</div>
               </div>
-              <div class="desc">
-                <ul>
-                  <li>Serve as Architecture Team Lead (May 2024–present), overseeing a team researching, designing, and implementing solutions aligned to business requirements and product roadmaps.</li>
-                  <li>Partner with product lines to deliver cloud architectures balancing security, scalability, performance, and cost.</li>
-                  <li>Champion standards, reusable patterns, and documentation to ensure consistent delivery across products and state programs.</li>
-                  <li>Member of the IT Leadership Team; active participant in the AI Center of Excellence committee supporting standards and enablement initiatives.</li>
-                  <li>Lead cloud architecture for Computerized Criminal History (CCH) solutions for Virginia State Police (Azure) and Florida Department of Law Enforcement (Azure), ensuring resilient infrastructure meeting state security requirements.</li>
-                  <li>Implement and tune Azure Front Door and Web Application Firewall (WAF) for public-facing applications to reduce risk while maintaining a reliable user experience.</li>
-                  <li>Cloud Architect for Rhode Island WIC Crossroads (Azure); Lead Cloud Architect for Community Health Management (CHM) for Montana (AWS), applying a NIST 800-53-aligned security baseline.</li>
-                  <li>Cloud engineer support for PA eVitals (Azure Government), integrating Datadog monitoring and implementing optimizations that reduced monthly Azure infrastructure spend by ~50%.</li>
-                  <li>Lead security analyst for a state FISMA audit, producing SSP and supporting artifacts to document NIST 800-53 control implementation; supported evidence collection for third-party assessments.</li>
-                  <li>Contribute to DR and failover strategies to meet contractual RTO/RPO requirements.</li>
-                </ul>
-              </div>
+              <ul>
+                <li>Architecture Team Lead (May 2024–present), overseeing research, design, and implementation aligned to business requirements and product roadmaps.</li>
+                <li>Deliver cloud architectures balancing security, scalability, performance, and cost; drive reusable patterns and documentation.</li>
+                <li>Lead cloud architecture for CCH solutions for Virginia State Police (Azure) and Florida Department of Law Enforcement (Azure).</li>
+                <li>Implement and tune Azure Front Door and WAF for public-facing applications.</li>
+                <li>Support PA eVitals (Azure Government) with monitoring and cost optimizations reducing monthly spend by ~50%.</li>
+                <li>Lead security analyst for a state FISMA audit; produce SSP and supporting artifacts documenting NIST 800-53 controls.</li>
+              </ul>
             </div>
 
             <div class="item">
@@ -368,16 +415,12 @@
                 <div class="role">Cloud Solutions Architect — American Institutes for Research (AIR)</div>
                 <div class="meta">Washington, D.C. · Jan 2005 – Apr 2021</div>
               </div>
-              <div class="desc">
-                <ul>
-                  <li>Designed and deployed an AWS data analytics platform achieving FedRAMP readiness, partnering with security and compliance teams.</li>
-                  <li>Designed and deployed Citrix Cloud–based remote desktop infrastructure in Azure for a large distributed workforce.</li>
-                  <li>Deployed and managed Tenable Security Center and Nessus scanners across AWS and Azure to prioritize and remediate risks.</li>
-                  <li>Planned, coordinated, and routinely tested Business Continuity and Disaster Recovery scenarios to meet RTO/RPO objectives.</li>
-                  <li>Led on-premises storage strategy with EMC and NetApp, including SnapMirror replication for redundancy and HA across data centers.</li>
-                  <li>Delivered email centralization and migration to O365 and evaluated/deployed email security gateways.</li>
-                </ul>
-              </div>
+              <ul>
+                <li>Designed and deployed an AWS data analytics platform achieving FedRAMP readiness.</li>
+                <li>Deployed Citrix Cloud–based remote desktop infrastructure in Azure.</li>
+                <li>Implemented Tenable Security Center and Nessus scanners across AWS and Azure to reduce risk.</li>
+                <li>Planned and tested business continuity and DR scenarios to meet RTO/RPO targets.</li>
+              </ul>
             </div>
 
             <div class="item">
@@ -385,14 +428,10 @@
                 <div class="role">Information Technology Specialist — The McKenzie Group</div>
                 <div class="meta">Washington, D.C. · Jan 2001 – Jan 2005</div>
               </div>
-              <div class="desc">
-                <ul>
-                  <li>Sole IT administrator for a fast-growing consulting firm, responsible for infrastructure, end-user support, and availability.</li>
-                  <li>Established IT policies, technology roadmaps, and hardware/software standards aligned with business objectives.</li>
-                  <li>Administered Windows SBS/Exchange, VPN, backups, patching, and recovery to maintain integrity and uptime.</li>
-                  <li>Negotiated and managed telecommunications/service provider contracts balancing cost and quality.</li>
-                </ul>
-              </div>
+              <ul>
+                <li>Sole IT administrator for a fast-growing consulting firm; owned infrastructure, end-user support, and availability.</li>
+                <li>Established IT policies, roadmaps, standards, patching, backup, and recovery.</li>
+              </ul>
             </div>
 
             <div class="item">
@@ -400,15 +439,11 @@
                 <div class="role">Project Support Specialist — Smithsonian Science Education Center</div>
                 <div class="meta">Washington, D.C. · Jan 1998 – Jan 2001</div>
               </div>
-              <div class="desc">
-                <ul>
-                  <li>Developed, designed, and maintained an educational website supporting a national middle school science curriculum.</li>
-                  <li>Created and managed a photo database and produced multimedia assets for science programs and publications.</li>
-                  <li>Researched, licensed, and prepared images for inclusion in textbooks and educational materials.</li>
-                </ul>
-              </div>
+              <ul>
+                <li>Developed and maintained an educational website supporting national science curriculum.</li>
+                <li>Produced and managed media assets and databases for educational programs.</li>
+              </ul>
             </div>
-
           </div>
         </div>
 
@@ -436,12 +471,8 @@
           <ul>
             <li>Email: <a href="mailto:mattrbailey@gmail.com">mattrbailey@gmail.com</a></li>
             <li>Phone: <a href="tel:+12027166833">202.716.6833</a></li>
-            <li>Location: Takoma Park, Maryland, United States</li>
-            <li>LinkedIn: replace the placeholder link in the hero card with your profile URL</li>
+            <li>LinkedIn: <a href="https://www.linkedin.com/in/matt-bailey-428864174/" target="_blank" rel="noopener">matt-bailey-428864174</a></li>
           </ul>
-          <p class="muted" style="margin-top:10px;">
-            Optional: add a Resume PDF. Upload a file named "Matt-Bailey-Resume.pdf" to this repo and add a download button to the hero.
-          </p>
         </div>
       </section>
 
