@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Matthew Bailey | Cloud Architect</title>
-  <meta name="description" content="Matthew Bailey — Cloud Architect specializing in secure, scalable cloud platforms, IaC, and resilience." />
+  <meta name="description" content="Matthew Bailey — Cloud Architect / Architecture Team Lead. Secure, scalable cloud environments across Azure (incl. Azure Gov), AWS, and on-prem." />
 
   <style>
     :root{
@@ -17,7 +17,6 @@
       --shadow:0 18px 50px rgba(0,0,0,.45);
       --radius:18px;
     }
-
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
@@ -29,16 +28,13 @@
                   var(--bg);
       line-height:1.55;
     }
-
     a{color:inherit}
     .wrap{max-width:1100px; margin:0 auto; padding:28px 18px 64px;}
     .nav{
       display:flex; align-items:center; justify-content:space-between;
       gap:16px; padding:10px 4px 22px;
     }
-    .brand{
-      display:flex; align-items:center; gap:10px; text-decoration:none;
-    }
+    .brand{display:flex; align-items:center; gap:10px; text-decoration:none;}
     .dot{
       width:10px;height:10px;border-radius:50%;
       background:var(--accent); box-shadow:0 0 0 6px rgba(58,160,255,.18);
@@ -56,7 +52,7 @@
       background:rgba(255,255,255,.04);
     }
 
-    /* Hero (similar vibe to screenshot) */
+    /* Hero */
     .hero{
       position:relative;
       border-radius:24px;
@@ -65,10 +61,10 @@
       border:1px solid var(--line);
       background:
         linear-gradient(180deg, rgba(0,0,0,.15), rgba(0,0,0,.62)),
-        url("https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=2400&q=80");
+        url("https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=2400&q=80");
       background-size:cover;
       background-position:center;
-      min-height:420px;
+      min-height:440px;
       display:flex;
       align-items:flex-end;
     }
@@ -78,7 +74,7 @@
       background:
         radial-gradient(900px 420px at 20% 20%, rgba(58,160,255,.28), transparent 55%),
         radial-gradient(800px 380px at 80% 20%, rgba(121,73,255,.24), transparent 55%),
-        linear-gradient(180deg, rgba(0,0,0,.08), rgba(0,0,0,.70));
+        linear-gradient(180deg, rgba(0,0,0,.08), rgba(0,0,0,.72));
       pointer-events:none;
     }
     .heroContent{
@@ -89,7 +85,6 @@
       grid-template-columns: 1.4fr .9fr;
       gap:18px;
     }
-
     .kicker{
       display:inline-flex;
       gap:10px; align-items:center;
@@ -116,10 +111,9 @@
     .headline{
       margin:0;
       color:rgba(230,237,247,.88);
-      max-width:62ch;
+      max-width:70ch;
       font-size:16px;
     }
-
     .ctaRow{
       display:flex; gap:10px; flex-wrap:wrap;
       margin-top:18px;
@@ -163,7 +157,7 @@
       border-radius:14px;
       padding:12px;
     }
-    .stat .num{font-size:18px; font-weight:700}
+    .stat .num{font-size:16px; font-weight:700}
     .stat .lbl{font-size:12px; color:rgba(230,237,247,.70); margin-top:4px}
     .mini{
       font-size:12px; color:rgba(230,237,247,.72);
@@ -171,7 +165,7 @@
       padding-top:12px;
       display:flex; gap:10px; flex-wrap:wrap;
     }
-    .mini a{color:rgba(230,237,247,.86); text-decoration:none}
+    .mini a{color:rgba(230,237,247,.88); text-decoration:none}
     .mini a:hover{text-decoration:underline}
 
     /* Sections */
@@ -205,7 +199,6 @@
       background:rgba(0,0,0,.18);
       color:rgba(230,237,247,.86);
     }
-
     .full{grid-column:1 / -1}
 
     /* Timeline */
@@ -233,12 +226,11 @@
       font-size:13px;
     }
 
-    /* Responsive */
     @media (max-width: 900px){
       .heroContent{grid-template-columns:1fr}
       .grid{grid-template-columns:1fr}
       h1{font-size:34px}
-      .hero{min-height:460px}
+      .hero{min-height:500px}
     }
   </style>
 </head>
@@ -255,145 +247,201 @@
         <a href="#about">About</a>
         <a href="#skills">Skills</a>
         <a href="#experience">Experience</a>
-        <a href="#certs">Certs</a>
+        <a href="#education">Education</a>
         <a href="#contact">Contact</a>
       </nav>
     </header>
 
     <main id="top">
-      <section class="hero">
+      <section class="hero" aria-label="Hero">
         <div class="heroContent">
           <div>
             <div class="kicker">
-              <span class="pill">Cloud Architecture</span>
-              <span>Secure platforms · Automation · Resilience</span>
+              <span class="pill">Cloud Architect</span>
+              <span>Architecture Team Lead · Security · Reliability · Cost Efficiency</span>
             </div>
 
-            <h1>Cloud Architect building reliable, secure systems.</h1>
+            <h1>Secure, scalable cloud architecture for government-grade requirements.</h1>
 
             <p class="headline">
-              I design and lead cloud platforms with a focus on security, compliance, disaster recovery, and Infrastructure as Code.
-              Available for architecture guidance, modernization roadmaps, and hands-on engineering.
+              Senior cloud architect and team lead with 20+ years of experience designing, implementing, and leading secure,
+              scalable environments across Azure (including Azure Government), AWS, and on-premises platforms.
+              I translate complex business and compliance requirements into practical architectures, while mentoring teams,
+              driving standards, and improving reliability, performance, and cost efficiency.
             </p>
 
             <div class="ctaRow">
               <a class="btn primary" href="#contact">Contact <small>email / LinkedIn</small></a>
-              <a class="btn" href="Matt-Bailey-Resume.pdf" target="_blank" rel="noopener">Download Resume <small>PDF</small></a>
               <a class="btn" href="#experience">View Experience</a>
+              <a class="btn" href="#skills">Core Skills</a>
             </div>
           </div>
 
-          <aside class="heroCard">
+          <aside class="heroCard" aria-label="Quick facts">
             <div class="statGrid">
               <div class="stat">
-                <div class="num">Azure · AWS · OCI</div>
-                <div class="lbl">Multi-cloud architecture</div>
+                <div class="num">Azure (Commercial & Gov)</div>
+                <div class="lbl">Design, build-out, operations</div>
               </div>
               <div class="stat">
-                <div class="num">IaC</div>
-                <div class="lbl">Terraform / automation</div>
+                <div class="num">AWS</div>
+                <div class="lbl">Secure environments & baselines</div>
               </div>
               <div class="stat">
-                <div class="num">Security</div>
-                <div class="lbl">Compliance & hardening</div>
+                <div class="num">Security & Compliance</div>
+                <div class="lbl">NIST 800-53 · FedRAMP readiness · FISMA</div>
               </div>
               <div class="stat">
-                <div class="num">DR</div>
-                <div class="lbl">Failover / failback</div>
+                <div class="num">Observability & Risk</div>
+                <div class="lbl">Datadog · Tenable/Nessus · SIEM</div>
               </div>
             </div>
 
-            <div class="mini">
-              <span class="muted">Links:</span>
+            <div class="mini" id="contactlinks">
+              <span class="muted">Takoma Park, MD</span>
+              <a href="mailto:mattrbailey@gmail.com">mattrbailey@gmail.com</a>
+              <a href="tel:+12027166833">202.716.6833</a>
               <a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>
-              <a href="https://github.com/matthew-bailey-arch" target="_blank" rel="noopener">GitHub</a>
-              <a href="mailto:YOUR.EMAIL@DOMAIN.COM">Email</a>
             </div>
           </aside>
         </div>
       </section>
 
-      <section class="grid">
+      <section class="grid" aria-label="Content">
         <div class="card" id="about">
           <h2>About</h2>
           <p class="muted">
-            Replace this paragraph with your LinkedIn “About” section.
-            Keep it to 4–6 lines: what you do, what you’re known for, and what you’re looking for.
+            Cloud architect / architecture team lead focused on state and local government solutions, delivering secure,
+            scalable environments and practical patterns that teams can reuse. Experienced across Azure (including Azure Government),
+            AWS, and on-premises platforms, with strong emphasis on compliance-driven architecture, operational excellence, and mentoring.
           </p>
 
-          <div class="tagRow">
-            <span class="tag">Cloud Architecture</span>
-            <span class="tag">Infrastructure as Code</span>
-            <span class="tag">Security & Compliance</span>
-            <span class="tag">Disaster Recovery</span>
-            <span class="tag">FinOps</span>
+          <div class="tagRow" aria-label="Focus tags">
+            <span class="tag">Reference Architecture</span>
+            <span class="tag">Dev/UAT/Prod Build-out</span>
+            <span class="tag">Network & Security Design</span>
+            <span class="tag">DR/BCP</span>
+            <span class="tag">Cost Optimization</span>
+            <span class="tag">Monitoring & Observability</span>
           </div>
         </div>
 
         <div class="card" id="skills">
           <h2>Core Skills</h2>
           <ul>
-            <li>Azure architecture: network segmentation, identity, governance, landing zones</li>
-            <li>AWS architecture: account strategy, IAM, VPC, security posture</li>
-            <li>IaC & automation: Terraform, CI/CD, repeatable deployments</li>
-            <li>Security: logging/monitoring, vulnerability management, SOC evidence</li>
-            <li>Resilience: DR planning, failover testing, RTO/RPO alignment</li>
+            <li>Cloud platforms: Microsoft Azure (Commercial & Government), AWS</li>
+            <li>Security & compliance: NIST 800-53, FedRAMP readiness, FISMA audits, WAF, vulnerability management</li>
+            <li>Tools & technologies: Azure Front Door & WAF, Datadog, Tenable Security Center, Nessus, Splunk SIEM, Citrix Cloud</li>
+            <li>Leadership: architecture team lead, cross-functional collaboration, stakeholder communication, vendor management</li>
+            <li>Governance & operations: monitoring/observability, DR/BCP, operational runbooks, cost optimization</li>
+            <li>Infrastructure: Windows Server, VMware, SAN storage (EMC, NetApp), backup/replication, O365/Exchange</li>
           </ul>
         </div>
 
         <div class="card full" id="experience">
-          <h2>Experience</h2>
+          <h2>Professional Experience</h2>
+
           <div class="timeline">
             <div class="item">
               <div class="itemTop">
-                <div class="role">Cloud Architect — Company Name</div>
-                <div class="meta">YYYY – Present · Location/Remote</div>
+                <div class="role">Architecture Team Lead / Senior Cloud Architect — Voyatek (formerly GCOM Software)</div>
+                <div class="meta">Columbia, MD · Apr 2021 – Present</div>
               </div>
               <div class="desc">
                 <ul>
-                  <li>Designed secure hub-and-spoke networks and guardrails for multi-environment deployments.</li>
-                  <li>Led automation using Terraform to standardize infrastructure and reduce manual effort.</li>
-                  <li>Implemented DR exercises and operational playbooks for regulated environments.</li>
+                  <li>Serve as Architecture Team Lead (May 2024–present), overseeing a team researching, designing, and implementing solutions aligned to business requirements and product roadmaps.</li>
+                  <li>Partner with product lines to deliver cloud architectures balancing security, scalability, performance, and cost.</li>
+                  <li>Champion standards, reusable patterns, and documentation to ensure consistent delivery across products and state programs.</li>
+                  <li>Member of the IT Leadership Team; active participant in the AI Center of Excellence committee supporting standards and enablement initiatives.</li>
+                  <li>Lead cloud architecture for Computerized Criminal History (CCH) solutions for Virginia State Police (Azure) and Florida Department of Law Enforcement (Azure), ensuring resilient infrastructure meeting state security requirements.</li>
+                  <li>Implement and tune Azure Front Door and Web Application Firewall (WAF) for public-facing applications to reduce risk while maintaining a reliable user experience.</li>
+                  <li>Cloud Architect for Rhode Island WIC Crossroads (Azure); Lead Cloud Architect for Community Health Management (CHM) for Montana (AWS), applying a NIST 800-53-aligned security baseline.</li>
+                  <li>Cloud engineer support for PA eVitals (Azure Government), integrating Datadog monitoring and implementing optimizations that reduced monthly Azure infrastructure spend by ~50%.</li>
+                  <li>Lead security analyst for a state FISMA audit, producing SSP and supporting artifacts to document NIST 800-53 control implementation; supported evidence collection for third-party assessments.</li>
+                  <li>Contribute to DR and failover strategies to meet contractual RTO/RPO requirements.</li>
                 </ul>
               </div>
             </div>
 
             <div class="item">
               <div class="itemTop">
-                <div class="role">Previous Role — Company Name</div>
-                <div class="meta">YYYY – YYYY</div>
+                <div class="role">Cloud Solutions Architect — American Institutes for Research (AIR)</div>
+                <div class="meta">Washington, D.C. · Jan 2005 – Apr 2021</div>
               </div>
               <div class="desc">
                 <ul>
-                  <li>Describe 2–3 outcomes with metrics where possible.</li>
-                  <li>Example: improved deployment time by X%, reduced incidents by Y%.</li>
+                  <li>Designed and deployed an AWS data analytics platform achieving FedRAMP readiness, partnering with security and compliance teams.</li>
+                  <li>Designed and deployed Citrix Cloud–based remote desktop infrastructure in Azure for a large distributed workforce.</li>
+                  <li>Deployed and managed Tenable Security Center and Nessus scanners across AWS and Azure to prioritize and remediate risks.</li>
+                  <li>Planned, coordinated, and routinely tested Business Continuity and Disaster Recovery scenarios to meet RTO/RPO objectives.</li>
+                  <li>Led on-premises storage strategy with EMC and NetApp, including SnapMirror replication for redundancy and HA across data centers.</li>
+                  <li>Delivered email centralization and migration to O365 and evaluated/deployed email security gateways.</li>
                 </ul>
+              </div>
+            </div>
+
+            <div class="item">
+              <div class="itemTop">
+                <div class="role">Information Technology Specialist — The McKenzie Group</div>
+                <div class="meta">Washington, D.C. · Jan 2001 – Jan 2005</div>
+              </div>
+              <div class="desc">
+                <ul>
+                  <li>Sole IT administrator for a fast-growing consulting firm, responsible for infrastructure, end-user support, and availability.</li>
+                  <li>Established IT policies, technology roadmaps, and hardware/software standards aligned with business objectives.</li>
+                  <li>Administered Windows SBS/Exchange, VPN, backups, patching, and recovery to maintain integrity and uptime.</li>
+                  <li>Negotiated and managed telecommunications/service provider contracts balancing cost and quality.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="item">
+              <div class="itemTop">
+                <div class="role">Project Support Specialist — Smithsonian Science Education Center</div>
+                <div class="meta">Washington, D.C. · Jan 1998 – Jan 2001</div>
+              </div>
+              <div class="desc">
+                <ul>
+                  <li>Developed, designed, and maintained an educational website supporting a national middle school science curriculum.</li>
+                  <li>Created and managed a photo database and produced multimedia assets for science programs and publications.</li>
+                  <li>Researched, licensed, and prepared images for inclusion in textbooks and educational materials.</li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="card full" id="education">
+          <h2>Education</h2>
+          <div class="timeline">
+            <div class="item">
+              <div class="itemTop">
+                <div class="role">Penn State University</div>
+                <div class="meta">Graduate Certificate, Enterprise Architecture · Aug 2021</div>
+              </div>
+            </div>
+            <div class="item">
+              <div class="itemTop">
+                <div class="role">Messiah College</div>
+                <div class="meta">Bachelor of Science, Environmental Science · May 1996</div>
               </div>
             </div>
           </div>
         </div>
 
-        <div class="card" id="certs">
-          <h2>Certifications</h2>
+        <div class="card full" id="contact">
+          <h2>Contact</h2>
+          <p class="muted">Best way to reach me:</p>
           <ul>
-            <li>Microsoft Certified: Azure Fundamentals (AZ-900) — (if applicable)</li>
-            <li>Other certs — add your list here</li>
+            <li>Email: <a href="mailto:mattrbailey@gmail.com">mattrbailey@gmail.com</a></li>
+            <li>Phone: <a href="tel:+12027166833">202.716.6833</a></li>
+            <li>Location: Takoma Park, Maryland, United States</li>
+            <li>LinkedIn: replace the placeholder link in the hero card with your profile URL</li>
           </ul>
           <p class="muted" style="margin-top:10px;">
-            Tip: list cert name + code + year.
+            Optional: add a Resume PDF. Upload a file named "Matt-Bailey-Resume.pdf" to this repo and add a download button to the hero.
           </p>
-        </div>
-
-        <div class="card" id="contact">
-          <h2>Contact</h2>
-          <p class="muted">
-            Best way to reach me:
-          </p>
-          <ul>
-            <li>Email: <a href="mailto:YOUR.EMAIL@DOMAIN.COM">YOUR.EMAIL@DOMAIN.COM</a></li>
-            <li>LinkedIn: <a href="https://www.linkedin.com/" target="_blank" rel="noopener">Add your profile link</a></li>
-            <li>GitHub: <a href="https://github.com/matthew-bailey-arch" target="_blank" rel="noopener">github.com/matthew-bailey-arch</a></li>
-          </ul>
         </div>
       </section>
 
